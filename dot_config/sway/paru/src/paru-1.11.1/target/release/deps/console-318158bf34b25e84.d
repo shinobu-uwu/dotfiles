@@ -1,0 +1,12 @@
+/home/shinobu/.config/sway/paru/src/paru-1.11.1/target/release/deps/console-318158bf34b25e84.rmeta: /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.15.0/src/lib.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.15.0/src/common_term.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.15.0/src/kb.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.15.0/src/term.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.15.0/src/unix_term.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.15.0/src/utils.rs
+
+/home/shinobu/.config/sway/paru/src/paru-1.11.1/target/release/deps/libconsole-318158bf34b25e84.rlib: /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.15.0/src/lib.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.15.0/src/common_term.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.15.0/src/kb.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.15.0/src/term.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.15.0/src/unix_term.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.15.0/src/utils.rs
+
+/home/shinobu/.config/sway/paru/src/paru-1.11.1/target/release/deps/console-318158bf34b25e84.d: /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.15.0/src/lib.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.15.0/src/common_term.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.15.0/src/kb.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.15.0/src/term.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.15.0/src/unix_term.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.15.0/src/utils.rs
+
+/home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.15.0/src/lib.rs:
+/home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.15.0/src/common_term.rs:
+/home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.15.0/src/kb.rs:
+/home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.15.0/src/term.rs:
+/home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.15.0/src/unix_term.rs:
+/home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/console-0.15.0/src/utils.rs:

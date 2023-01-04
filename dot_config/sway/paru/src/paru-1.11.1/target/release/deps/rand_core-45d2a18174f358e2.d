@@ -1,0 +1,12 @@
+/home/shinobu/.config/sway/paru/src/paru-1.11.1/target/release/deps/rand_core-45d2a18174f358e2.rmeta: /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.5.1/src/lib.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.5.1/src/error.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.5.1/src/block.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.5.1/src/impls.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.5.1/src/le.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.5.1/src/os.rs
+
+/home/shinobu/.config/sway/paru/src/paru-1.11.1/target/release/deps/librand_core-45d2a18174f358e2.rlib: /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.5.1/src/lib.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.5.1/src/error.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.5.1/src/block.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.5.1/src/impls.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.5.1/src/le.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.5.1/src/os.rs
+
+/home/shinobu/.config/sway/paru/src/paru-1.11.1/target/release/deps/rand_core-45d2a18174f358e2.d: /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.5.1/src/lib.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.5.1/src/error.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.5.1/src/block.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.5.1/src/impls.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.5.1/src/le.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.5.1/src/os.rs
+
+/home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.5.1/src/lib.rs:
+/home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.5.1/src/error.rs:
+/home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.5.1/src/block.rs:
+/home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.5.1/src/impls.rs:
+/home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.5.1/src/le.rs:
+/home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.5.1/src/os.rs:

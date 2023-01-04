@@ -1,0 +1,11 @@
+/home/shinobu/.config/sway/paru/src/paru-1.11.1/target/release/deps/aur_depends-67d9d2faf951183a.rmeta: /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/aur-depends-1.0.3/src/lib.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/aur-depends-1.0.3/src/actions.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/aur-depends-1.0.3/src/error.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/aur-depends-1.0.3/src/resolve.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/aur-depends-1.0.3/src/satisfies.rs
+
+/home/shinobu/.config/sway/paru/src/paru-1.11.1/target/release/deps/libaur_depends-67d9d2faf951183a.rlib: /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/aur-depends-1.0.3/src/lib.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/aur-depends-1.0.3/src/actions.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/aur-depends-1.0.3/src/error.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/aur-depends-1.0.3/src/resolve.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/aur-depends-1.0.3/src/satisfies.rs
+
+/home/shinobu/.config/sway/paru/src/paru-1.11.1/target/release/deps/aur_depends-67d9d2faf951183a.d: /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/aur-depends-1.0.3/src/lib.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/aur-depends-1.0.3/src/actions.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/aur-depends-1.0.3/src/error.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/aur-depends-1.0.3/src/resolve.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/aur-depends-1.0.3/src/satisfies.rs
+
+/home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/aur-depends-1.0.3/src/lib.rs:
+/home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/aur-depends-1.0.3/src/actions.rs:
+/home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/aur-depends-1.0.3/src/error.rs:
+/home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/aur-depends-1.0.3/src/resolve.rs:
+/home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/aur-depends-1.0.3/src/satisfies.rs:

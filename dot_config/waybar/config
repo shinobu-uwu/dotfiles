@@ -1,0 +1,116 @@
+{
+    "layer": "top",
+    "margin": 3,
+    "modules-left": [
+        "sway/workspaces",
+        "pulseaudio",
+        "custom/weather"
+    ],
+    "modules-center": [
+        "sway/window"
+    ],
+    "modules-right": [
+        "cpu",
+        "custom/memory",
+        "battery",
+        "backlight",
+        "network",
+        "clock"
+    ],
+    "sway/workspaces": {
+        "all-outputs": true,
+        "disable-scroll": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+            "7": "",
+            "8": "",
+            "9": ""
+        }
+    },
+    "sway/window": {
+        "all-outputs": true,
+        "max-length": 40
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        }
+    },
+    "clock": {
+        "format": " {:%H:%M}"
+    },
+    "cpu": {
+        "interval": 1,
+        "format": "<span size=\"large\" rise=\"-3pt\"></span> {usage}% "
+    },
+    "battery": {
+        "format": "<span font=\"Symbols Nerd Font\" size=\"large\">{icon}</span> {capacity}%",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "format-charging": "<span font=\"Symbols Nerd Font\" size=\"large\"></span> {capacity}%",
+        "interval": 30,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip": false
+    },
+    "backlight": {
+        "format": "<span font=\"Material Icons\">{icon}</span> {percent}%",
+        "format-icons": [
+            "🔅",
+            "🔆"
+        ]
+    },
+    "custom/memory": {
+        "interval": 1,
+        "format": " {} MB",
+        "exec": "$HOME/.local/bin/memory"
+    },
+    "custom/weather": {
+        "interval": 60,
+        "format": " {}°C",
+        "exec": "$HOME/.local/bin/weather 'Blumenau,SC'"
+    },
+    "network": {
+        "format-wifi": " {essid}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "max-length": 12
+    },
+    "custom/spotify": {
+        "exec": "/usr/bin/python3 /home/shinobu/.config/waybar/mediaplayer.py --player spotify",
+        "format": "{icon} {}",
+        "return-type": "json",
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "max-length": 30,
+        "format-icons": {
+            "spotify": "",
+            "firefox": "",
+            "default": "🎜"
+        }
+    }
+}

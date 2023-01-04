@@ -1,0 +1,68 @@
+name: Paru
+
+on:
+  push:
+    paths:
+      - 'src/*.rs'
+      - 'testdata/**'
+      - 'tests/**'
+      - 'Cargo.*'
+  pull_request:
+    paths:
+      - 'src/*.rs'
+      - 'testdata/**'
+      - 'tests/**'
+      - 'Cargo.*'
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux
+    steps:
+      - name: Install Packages
+        run: pacman -Syu rust clang gcc libarchive pkgconf sudo fakeroot --noconfirm --needed
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Format
+        run: cargo fmt -- --check
+
+      - name: Build
+        run: cargo build --locked --features generate
+
+      - name: Test
+        run: sudo -u nobody BUILDDIR=/tmp PKGDEST=/tmp SRCDEST=/tmp CARGO_HOME=/tmp/cargo cargo test --locked --features generate,mock --target-dir=/tmp -- --test-threads=1
+
+  test-git:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux
+    steps:
+      - name: Install Packages
+        run: pacman -Syu rust curl clang git base-devel libarchive meson asciidoc doxygen fakechroot pkgconf --noconfirm --needed
+
+      - name: Install Pacman-git
+        run: |
+          git clone https://aur.archlinux.org/pacman-git
+          chown -R nobody pacman-git
+          cd pacman-git
+          sudo -u nobody makepkg --nocheck
+          sudo -u nobody makepkg --packagelist > list
+          yes | pacman -U $(cat list)
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Format
+        run: cargo fmt -- --check
+
+      - name: Build
+        run: cargo build --locked --features git,generate
+
+      - name: Test
+        run: sudo -u nobody BUILDDIR=/tmp PKGDEST=/tmp SRCDEST=/tmp CARGO_HOME=/tmp/cargo cargo test --locked --features git,generate,mock --target-dir=/tmp -- --test-threads=1

@@ -1,0 +1,12 @@
+/home/shinobu/.config/sway/paru/src/paru-1.11.1/target/release/deps/httparse-ca640e10ea7bda3c.rmeta: /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.7.1/src/lib.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.7.1/src/iter.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.7.1/src/macros.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.7.1/src/simd/mod.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.7.1/src/simd/sse42.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.7.1/src/simd/avx2.rs
+
+/home/shinobu/.config/sway/paru/src/paru-1.11.1/target/release/deps/libhttparse-ca640e10ea7bda3c.rlib: /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.7.1/src/lib.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.7.1/src/iter.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.7.1/src/macros.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.7.1/src/simd/mod.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.7.1/src/simd/sse42.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.7.1/src/simd/avx2.rs
+
+/home/shinobu/.config/sway/paru/src/paru-1.11.1/target/release/deps/httparse-ca640e10ea7bda3c.d: /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.7.1/src/lib.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.7.1/src/iter.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.7.1/src/macros.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.7.1/src/simd/mod.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.7.1/src/simd/sse42.rs /home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.7.1/src/simd/avx2.rs
+
+/home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.7.1/src/lib.rs:
+/home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.7.1/src/iter.rs:
+/home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.7.1/src/macros.rs:
+/home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.7.1/src/simd/mod.rs:
+/home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.7.1/src/simd/sse42.rs:
+/home/shinobu/.cargo/registry/src/github.com-1ecc6299db9ec823/httparse-1.7.1/src/simd/avx2.rs:
