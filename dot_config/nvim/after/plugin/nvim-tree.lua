@@ -14,6 +14,9 @@ require("nvim-tree").setup({
     filters = {
         dotfiles = true,
     },
+    update_focused_file = {
+        enable = false,
+    }
 })
 
-vim.keymap.set("n", "<M-1>", function () vim.cmd("NvimTreeToggle") end)
+vim.keymap.set("n", "<M-1>", function() vim.cmd("NvimTreeToggle") end)

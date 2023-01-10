@@ -5,6 +5,7 @@
 # Read `man 5 sway` for a complete reference.
 
 exec discord
+assign [class="discord"] workspace number 3
 exec autotiling
 set $gnome-schema org.gnome.desktop.interface
 exec_always {
@@ -13,6 +14,9 @@ exec_always {
     gsettings set $gnome-schema cursor-theme 'Bibata-Modern-Ice'
     gsettings set $gnome-schema font-name 'Lexend Deca 12'
 }
+
+focus_follows_mouse no
+
 input * {
     accel_profile "flat"
     xkb_layout "br"

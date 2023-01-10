@@ -101,4 +101,7 @@ return require('packer').startup(function(use)
     use 'ray-x/lsp_signature.nvim'
     use 'lukas-reineke/indent-blankline.nvim'
     use "glepnir/lspsaga.nvim"
+    use 'yamatsum/nvim-cursorline'
+    use 'norcalli/nvim-colorizer.lua'
+    use 'mrjones2014/nvim-ts-rainbow'
 end)

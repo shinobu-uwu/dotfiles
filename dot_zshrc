@@ -30,3 +30,4 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 alias ls='ls --color=auto'
 export PATH=~/.local/bin:$PATH
 export EDITOR=nvim
+alias ls=exa

@@ -34,3 +34,11 @@ vim.cmd([[
 set signcolumn=yes
 autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 ]])
+
+local luasnip = require('luasnip')
+vim.keymap.set("n", "<Tab>", function() luasnip.jump(1) end)
+vim.keymap.set("n", "<S-Tab>", function() luasnip.jump(-1) end)
+vim.keymap.set("i", "<Tab>", function() luasnip.jump(1) end)
+vim.keymap.set("i", "<S-Tab>", function() luasnip.jump(-1) end)
+vim.keymap.set("v", "<Tab>", function() luasnip.jump(1) end)
+vim.keymap.set("v", "<S-Tab>", function() luasnip.jump(-1) end)
