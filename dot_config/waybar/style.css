@@ -1,0 +1,147 @@
+@define-color background #282a36;
+@define-color foreground #f8f8f2;
+@define-color grey #44475a;
+@define-color yellow #f1fa8c;
+@define-color blue #6272a4;
+@define-color cyan #8be9fd;
+@define-color green #50fa7b;
+@define-color orange #ffb86c;
+@define-color pink #ff79c6;
+@define-color purple #bd93f9;
+@define-color red #ff5555;
+
+window#waybar {
+    opacity: 1;
+    background: transparent;
+    font-family: "Lexend Deca", "FontAwesome5 Free", "FontAwesome5 Brands", "Material Icons";
+    font-size: 16px;
+}
+
+#workspaces {
+    background-color: @purple;
+    border-radius: 20px;
+}
+
+#workspaces button {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    color: @foreground;
+}
+
+#workspaces button.focused {
+    color: @green;
+}
+
+#workspaces button.urgent {
+    animation-duration: 0.5s;
+    animation-name: blink;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    color: @red;
+}
+
+@keyframes blink {
+    to {
+        color: @foreground;
+    }
+}
+
+#window {
+    border-right: 10px solid @red;
+    border-left: 10px solid @red;
+    border-radius: 20px;
+    background-color: @red;
+    color: @foreground;
+}
+
+window#waybar.empty #window {
+    background: transparent;
+    border: none;
+}
+
+#cpu {
+    border-right: 10px solid @background;
+    border-left: 10px solid @background;
+    border-radius: 20px;
+    background-color: @background;
+}
+
+#custom-memory {
+    border-right: 10px solid @grey;
+    border-left: 10px solid @grey;
+    border-radius: 20px;
+    background-color: @grey;
+}
+
+#custom-spotify {
+    border-right: 10px solid @pink;
+    border-left: 10px solid @pink;
+    border-radius: 20px;
+    background-color: @pink;
+}
+
+#battery {
+    border-right: 10px solid @blue;
+    border-left: 10px solid @blue;
+    border-radius: 20px;
+    background-color: @blue;
+}
+
+#custom-weather {
+    border-right: 10px solid @blue;
+    border-left: 10px solid @blue;
+    border-radius: 20px;
+    background-color: @blue;
+}
+
+#pulseaudio {
+    border-right: 10px solid @orange;
+    border-left: 10px solid @orange;
+    border-radius: 20px;
+    background-color: @orange;
+}
+
+#backlight {
+    border-right: 10px solid @orange;
+    border-left: 10px solid @orange;
+    border-radius: 20px;
+    background-color: @orange;
+}
+
+#network {
+    border-right: 10px solid @pink;
+    border-left: 10px solid @pink;
+    border-radius: 20px;
+    background-color: @pink;
+}
+
+#clock {
+    border-right: 10px solid @purple;
+    border-left: 10px solid @purple;
+    border-radius: 20px;
+    background-color: @purple;
+}
+
+#cpu, #custom-memory, #pulseaudio, #battery, #backlight, #network, #custom-weather, #clock, #workspaces, #custom-spotify {
+    padding:0 5px;
+    margin: 0 5px;
+}
+
+.modules-left {
+    color: @foreground;
+}
+
+.modules-right {
+    color: @foreground;
+}
+
+.modules-right {
+    color: @foreground;
+}
+
+#big-icon {
+    font-size: 50px;
+}

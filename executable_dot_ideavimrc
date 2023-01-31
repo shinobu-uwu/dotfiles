@@ -1,0 +1,51 @@
+Plug 'tpope/vim-commentary'
+set scrolloff=5
+set incsearch
+map Q gq
+set ideajoin
+set idearefactormode=keep
+
+set clipboard+=unnamed
+set clipboard+=ideaput
+set number relativenumber
+set multiple-cursors
+set highlightedyank
+set number
+set NERDTree
+let NERDTreeQuitOnOpen=1
+let mapleader=" "
+
+map <Leader>,   :source ~/.ideavimrc<CR>
+map <leader>d <Action>(Debug)
+map gr <Action>(RenameElement)
+map gd <Action>(GotoDeclaration)
+map <leader>ps <Action>(FindInPath)
+map <leader>ff <Action>(SearchEverywhere)
+map <leader>q <Action>(CloseContent)
+map ge <Action>(GotoNextError)
+map gE <Action>(GotoPreviousError)
+map <leader>tb <Action>(ToggleLineBreakpoint)
+map <leader>rr <Action>(Run)
+map <leader>rd <Action>(Debug)
+map <Leader>xi <Action>(ExtractInterface)
+map <Leader>xs <Action>(ExtractSuperclass)
+map <Leader>xc <Action>(ExtractClass)
+map <Leader>xm <Action>(ExtractMethod)
+map <Leader>cv <Action>(IntroduceVariable)
+map <Leader>ci <Action>(Inline)
+map <Leader>cf <Action>(IntroduceField)
+map <Leader>cp <Action>(IntroduceParameter)
+map <Leader>cc <Action>(IntroduceConstant)
+" comment a line, similar to tpope/vim-commentary
+nmap gcc <Action>(CommentByLineComment)
+vmap gcc <Action>(CommentByLineComment)
+map <leader>up <Action>(Vcs.UpdateProject)
+
+vmap J :m '>+1<CR>gv=gv<CR>
+vmap K :m '<-2<CR>gv=gv<CR>
+
+if has('ide')
+  if &ide =~? 'android studio'
+    map <leader>nf <Action>(NewFile)
+  endif
+endif

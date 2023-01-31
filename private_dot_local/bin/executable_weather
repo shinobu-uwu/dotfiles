@@ -1,0 +1,11 @@
+#!/usr/bin/python3.10
+QUERY_URL = "http://api.openweathermap.org/data/2.5/weather?"
+API_KEY = "7834197c2338888258f8cb94ae14ef49"
+QUERY = "Blumenau,SC,BR"
+UNITS = "metric"
+
+from requests import get
+
+resp = get(f"{QUERY_URL}units={UNITS}&q={QUERY}&appid={API_KEY}").json()
+print(round(resp["main"]["temp"]))
+
