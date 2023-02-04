@@ -99,4 +99,49 @@ return {
             {'K', ':Lspsaga hover_doc<cr>', mode = 'n', desc = 'Hover doc', silent = true, noremap = true},
         }
     },
+    {
+        'simrat39/rust-tools.nvim',
+        config = function ()
+            local function on_attach(client, buffer)
+            end
+
+            local opts = {
+              tools = {
+                runnables = {
+                  use_telescope = true,
+                },
+                inlay_hints = {
+                  auto = true,
+                  show_parameter_hints = false,
+                  parameter_hints_prefix = "",
+                  other_hints_prefix = "",
+                },
+              },
+
+              server = {
+                -- on_attach is a callback called when the language server attachs to the buffer
+                on_attach = on_attach,
+                settings = {
+                  -- to enable rust-analyzer settings visit:
+                  -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+                  ["rust-analyzer"] = {
+                    -- enable clippy on save
+                    checkOnSave = {
+                      command = "clippy",
+                    },
+                  },
+                },
+              },
+            }
+
+            require("rust-tools").setup(opts)
+        end
+    },
+    {
+        'saecki/crates.nvim',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        config = function ()
+            require('crates').setup()
+        end
+    }
 }

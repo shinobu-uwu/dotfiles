@@ -39,7 +39,19 @@ return {
 
             vim.diagnostic.config({
                 virtual_text = true,
+                underline = true,
+                signs = true,
+                float = {
+                    show_header = true,
+                    source = 'if_many',
+                    border = 'rounded',
+                    focusable = false,
+                },
+                update_in_insert = false, -- default to false
+                severity_sort = false, -- default to false
             })
+            vim.o.updatetime = 150
+            vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })]])
 
             lsp.setup_nvim_cmp({
                 formatting = {
