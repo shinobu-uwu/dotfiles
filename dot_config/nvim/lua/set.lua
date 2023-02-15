@@ -27,5 +27,3 @@ vim.api.nvim_set_option("updatetime", 300)
 vim.opt.wrap = false
 vim.opt.splitkeep = "screen"
 vim.opt.shortmess:append({ C = true })
-
-vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])

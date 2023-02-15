@@ -25,7 +25,12 @@ return {
 		config = function()
 			local lsp = require("lsp-zero")
 			local lspkind = require("lspkind")
+			local navic = require("nvim-navic")
 			lsp.preset("recommended")
+
+			lsp.on_attach(function(client, bufnr)
+				navic.attach(client, bufnr)
+			end)
 
 			lsp.set_preferences({
 				set_lsp_keymaps = false,
@@ -76,6 +81,23 @@ return {
 					-- null_ls.builtins.diagnostics.eslint,
 					null_ls.builtins.formatting.rustfmt,
 				},
+				on_attach = function(client, bufnr)
+					if client.supports_method("textDocument/formatting") then
+						vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+						vim.api.nvim_create_autocmd("BufWritePre", {
+							group = augroup,
+							buffer = bufnr,
+							callback = function()
+								vim.lsp.buf.format({
+									bufnr = bufnr,
+									filter = function()
+										return client.name == "null-ls"
+									end,
+								})
+							end,
+						})
+					end
+				end,
 			})
 		end,
 	},
