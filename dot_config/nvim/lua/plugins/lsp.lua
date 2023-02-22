@@ -1,3 +1,9 @@
+local has_words_before = function()
+	unpack = unpack or table.unpack
+	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
 return {
 	{
 		"VonHeikemen/lsp-zero.nvim",
@@ -58,10 +64,24 @@ return {
 			vim.o.updatetime = 150
 			vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })]])
 
+			local cmp = require("cmp")
+			local luasnip = require("luasnip")
 			lsp.setup_nvim_cmp({
 				formatting = {
 					fields = { "abbr", "kind" },
 					format = lspkind.cmp_format(),
+					sorting = {
+						comparators = {
+							cmp.config.compare.offset,
+							cmp.config.compare.exact,
+							cmp.config.compare.score,
+							require("cmp-under-comparator").under,
+							cmp.config.compare.kind,
+							cmp.config.compare.sort_text,
+							cmp.config.compare.length,
+							cmp.config.compare.order,
+						},
+					},
 				},
 			})
 
@@ -76,9 +96,9 @@ return {
 
 			null_ls.setup({
 				sources = {
-					null_ls.builtins.formatting.prettier,
+					null_ls.builtins.diagnostics.eslint_d,
 					null_ls.builtins.formatting.stylua,
-					-- null_ls.builtins.diagnostics.eslint,
+					null_ls.builtins.diagnostics.eslint,
 					null_ls.builtins.formatting.rustfmt,
 				},
 				on_attach = function(client, bufnr)
@@ -90,8 +110,8 @@ return {
 							callback = function()
 								vim.lsp.buf.format({
 									bufnr = bufnr,
-									filter = function()
-										return client.name == "null-ls"
+									filter = function(c)
+										return c.name == "null-ls"
 									end,
 								})
 							end,
@@ -100,5 +120,8 @@ return {
 				end,
 			})
 		end,
+	},
+	{
+		"lukas-reineke/cmp-under-comparator",
 	},
 }
