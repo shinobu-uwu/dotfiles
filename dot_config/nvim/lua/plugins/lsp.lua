@@ -15,7 +15,7 @@ return {
 			{ "williamboman/mason-lspconfig.nvim" }, -- Optional
 
 			-- Autocompletion
-			{ "hrsh7th/nvim-cmp" }, -- Required
+			{ "hrsh7th/nvim-cmp", version = false }, -- Required
 			{ "hrsh7th/cmp-nvim-lsp" }, -- Required
 			{ "hrsh7th/cmp-path" }, -- Optional
 			{ "saadparwaiz1/cmp_luasnip" }, -- Optional
@@ -67,6 +67,7 @@ return {
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
 			lsp.setup_nvim_cmp({
+				completion = { completeopt = "noselect" },
 				formatting = {
 					fields = { "abbr", "kind" },
 					format = lspkind.cmp_format(),
