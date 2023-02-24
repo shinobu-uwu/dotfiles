@@ -153,6 +153,11 @@ return {
 							checkOnSave = {
 								command = "clippy",
 							},
+							diagnostic = {
+								enable = true,
+								disabled = { "unresolved-proc-macro" },
+								enableExperimental = true,
+							},
 						},
 					},
 				},
