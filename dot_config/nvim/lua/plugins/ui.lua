@@ -5,7 +5,7 @@ return {
 		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
 			-- local gutter_fg = "#4B5263"
-			local gutter_fg = "#676b88"
+			local gutter_fg = "#033E5D"
 			local dracula = require("dracula")
 			dracula.setup({
 				italic_comment = true,
