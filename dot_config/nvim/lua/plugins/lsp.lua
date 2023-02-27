@@ -97,10 +97,10 @@ return {
 
 			null_ls.setup({
 				sources = {
+					null_ls.builtins.formatting.rustfmt,
 					null_ls.builtins.diagnostics.eslint_d,
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.diagnostics.eslint,
-					null_ls.builtins.formatting.rustfmt,
 				},
 				on_attach = function(client, bufnr)
 					if client.supports_method("textDocument/formatting") then
