@@ -86,6 +86,7 @@ return {
 				},
 			})
 
+			lsp.skip_server_setup({ "rust_analyzer" })
 			lsp.setup()
 		end,
 	},
