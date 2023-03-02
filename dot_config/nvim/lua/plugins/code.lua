@@ -8,26 +8,10 @@ return {
 	},
 	{
 		"JoosepAlviste/nvim-ts-context-commentstring",
-		lazy = true,
 		config = function()
 			require("nvim-treesitter.configs").setup({
 				context_commentstring = {
 					enable = true,
-				},
-			})
-		end,
-	},
-	{
-		"mrjones2014/nvim-ts-rainbow",
-		lazy = true,
-		config = function()
-			require("nvim-treesitter.configs").setup({
-				rainbow = {
-					enable = true,
-					extended_mode = true,
-					max_file_lines = nil,
-					-- TODO: colors = {}, -- table of hex strings
-					-- termcolors = {} -- table of colour name strings
 				},
 			})
 		end,
@@ -112,7 +96,7 @@ return {
 			},
 			{
 				"ge",
-				":Lspsaga diagnostic_jump_next<cr>",
+				":lua vim.diagnostic.goto_next()<cr>",
 				mode = "n",
 				desc = "Go to next diagnostic",
 				silent = true,
@@ -120,7 +104,7 @@ return {
 			},
 			{
 				"gE",
-				":Lspsaga diagnostic_jump_prev<cr>",
+				":lua vim.diagnostic.goto_prev()<cr>",
 				mode = "n",
 				desc = "Go to previous diagnostic",
 				silent = true,
@@ -151,7 +135,7 @@ return {
 					settings = {
 						["rust-analyzer"] = {
 							checkOnSave = {
-								command = "clippy",
+								command = { "clippy", "format" },
 							},
 							diagnostic = {
 								enable = true,
@@ -227,25 +211,21 @@ return {
 		end,
 	},
 	{
-		"filipdutescu/renamer.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
+		"smjonas/inc-rename.nvim",
 		keys = {
 			{
 				"gr",
-				'<cmd>lua require("renamer").rename()<cr>',
+				function()
+					return ":IncRename " .. vim.fn.expand("<cword>")
+				end,
 				mode = "n",
 				desc = "Rename",
 				silent = true,
 				noremap = true,
+				expr = true,
 			},
 		},
-		config = function()
-			require("renamer").setup({
-				title = "Rename",
-				min_width = 30,
-				max_width = 80,
-			})
-		end,
+		config = true,
 	},
 	{
 		"nmac427/guess-indent.nvim",
@@ -261,6 +241,39 @@ return {
 				dev = "mysql://root:12345@172.17.0.2",
 			}
 			vim.keymap.set("n", "<leader>db", "<cmd>DBUIToggle<cr>")
+		end,
+	},
+	{
+		"ThePrimeagen/refactoring.nvim",
+		keys = {
+			{
+				"<leader>xv",
+				[[ <Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>]],
+				mode = "v",
+				silent = true,
+				desc = "Extract variable",
+				noremap = true,
+				expr = false,
+			},
+			{
+				"<leader>xm",
+				[[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]],
+				mode = "v",
+				silent = true,
+				desc = "Extract method",
+				noremap = true,
+				expr = false,
+			},
+		},
+		config = function()
+			require("refactoring").setup({
+				prompt_func_return_type = {
+					php = true,
+				},
+				prompt_func_param_type = {
+					php = true,
+				},
+			})
 		end,
 	},
 }

@@ -1,6 +1,5 @@
 local function deploy()
 	local os = require("os")
-	local project_nvim = require("project_nvim")
 	local f = io.open(vim.fn.getcwd() .. "/.mapping.json", "r")
 
 	if f == nil then
@@ -11,6 +10,10 @@ local function deploy()
 	local config = vim.json.decode(f:read("*all"))
 	f:close()
 	local current_file = vim.fn.expand("%:p")
+
+	if config.auto_save then
+		vim.api.nvim_create_autocmd("BufWritePost", { pattern = "*", callback = deploy, once = true })
+	end
 
 	for _, value in pairs(config.mapping) do
 		if string.match(current_file, value.local_path) then
