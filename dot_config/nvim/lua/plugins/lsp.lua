@@ -65,9 +65,7 @@ return {
 			vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })]])
 
 			local cmp = require("cmp")
-			local luasnip = require("luasnip")
 			lsp.setup_nvim_cmp({
-				completion = { completeopt = "noselect" },
 				formatting = {
 					fields = { "abbr", "kind" },
 					format = lspkind.cmp_format(),
