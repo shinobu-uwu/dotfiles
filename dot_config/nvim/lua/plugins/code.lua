@@ -276,4 +276,27 @@ return {
 			})
 		end,
 	},
+	{
+		"michaelb/sniprun",
+		build = "bash ./install.sh",
+	},
+	{
+		"CRAG666/code_runner.nvim",
+		keys = {
+			{
+				"<leader>rr",
+				":RunCode<CR>",
+				mode = "n",
+				silent = true,
+				desc = "Run",
+				noremap = true,
+				expr = false,
+			},
+		},
+		opts = {
+			filetype = {
+				rust = "cargo run",
+			},
+		},
+	},
 }

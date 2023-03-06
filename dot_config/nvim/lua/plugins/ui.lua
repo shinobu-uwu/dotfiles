@@ -62,7 +62,6 @@ return {
 		"lukas-reineke/indent-blankline.nvim",
 		config = function()
 			require("indent_blankline").setup({
-				show_current_context_start = true,
 				filetype_exclude = { "dashboard" },
 				space_char_blankline = " ",
 				char_highlight_list = {
@@ -408,7 +407,12 @@ return {
 	{
 		"RRethy/vim-illuminate",
 		config = function()
-			require("illuminate").configure({ under_cursor = false })
+			require("illuminate").configure({
+				under_cursor = false,
+				filetypes_denylist = {
+					"NvimTree",
+				},
+			})
 		end,
 	},
 	{
@@ -572,5 +576,9 @@ return {
 			"nvim-tree/nvim-web-devicons", -- optional dependency
 		},
 		opts = {},
+	},
+	{
+		"lukas-reineke/virt-column.nvim",
+		config = true,
 	},
 }
