@@ -159,9 +159,7 @@ return {
 	},
 	{
 		"p00f/clangd_extensions.nvim",
-		config = function()
-			require("clangd_extensions").setup()
-		end,
+		config = true,
 	},
 	{
 		"windwp/nvim-ts-autotag",
@@ -298,5 +296,11 @@ return {
 				rust = "cargo run",
 			},
 		},
+	},
+	{
+		"shinobu-uwu/rsync.nvim",
+		config = function()
+			require("rsync").setup()
+		end,
 	},
 }
