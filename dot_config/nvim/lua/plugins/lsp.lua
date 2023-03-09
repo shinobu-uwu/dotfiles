@@ -36,12 +36,6 @@ return {
 
 			lsp.set_preferences({
 				set_lsp_keymaps = false,
-				sign_icons = {
-					error = "",
-					warning = "",
-					hint = "",
-					info = "",
-				},
 			})
 
 			vim.diagnostic.config({
