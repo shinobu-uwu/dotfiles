@@ -1,10 +1,7 @@
 return {
 	{
-		"echasnovski/mini.pairs",
-		version = false,
-		config = function()
-			require("mini.pairs").setup()
-		end,
+		"windwp/nvim-autopairs",
+		config = true,
 	},
 	{
 		"JoosepAlviste/nvim-ts-context-commentstring",
@@ -299,8 +296,34 @@ return {
 	},
 	{
 		"shinobu-uwu/rsync.nvim",
+		lazy = false,
+		keys = {
+			{
+				"<leader>uf",
+				":RsyncCurrentFile<CR>",
+				mode = "n",
+				silent = true,
+				desc = "Upload current file to remote",
+				noremap = true,
+				expr = false,
+			},
+		},
 		config = function()
 			require("rsync").setup()
 		end,
+	},
+	{
+		"hkupty/iron.nvim",
+		keys = {
+			{
+				"<leader>rs",
+				":IronRepl<CR>",
+				mode = "n",
+				silent = true,
+				desc = "Open REPL",
+				noremap = true,
+				expr = false,
+			},
+		},
 	},
 }

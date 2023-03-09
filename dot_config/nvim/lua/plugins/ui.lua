@@ -128,12 +128,9 @@ return {
 			renderer = {
 				group_empty = true,
 			},
-			filters = {
-				dotfiles = true,
-			},
 			update_focused_file = {
-				enable = false,
-				update_root = true,
+				enable = true,
+				update_root = false,
 			},
 			sync_root_with_cwd = true,
 			respect_buf_cwd = true,

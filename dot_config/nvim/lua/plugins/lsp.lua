@@ -61,10 +61,12 @@ return {
 				update_in_insert = true,
 				severity_sort = true,
 			})
-			vim.o.updatetime = 150
+
 			vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })]])
 
 			local cmp = require("cmp")
+			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 			lsp.setup_nvim_cmp({
 				formatting = {
 					fields = { "abbr", "kind" },
@@ -98,8 +100,11 @@ return {
 				sources = {
 					null_ls.builtins.formatting.rustfmt,
 					null_ls.builtins.formatting.stylua,
+					null_ls.builtins.formatting.phpcsfixer,
 					null_ls.builtins.diagnostics.eslint_d,
 					null_ls.builtins.diagnostics.eslint,
+					null_ls.builtins.diagnostics.phpmd,
+					null_ls.builtins.diagnostics.phpcs,
 				},
 				on_attach = function(client, bufnr)
 					if client.supports_method("textDocument/formatting") then
