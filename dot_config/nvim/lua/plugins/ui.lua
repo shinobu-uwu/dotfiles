@@ -122,6 +122,9 @@ return {
 					quit_on_open = true,
 				},
 			},
+			filters = {
+				dotfiles = true,
+			},
 			view = {
 				adaptive_size = true,
 			},
@@ -134,6 +137,13 @@ return {
 			},
 			sync_root_with_cwd = true,
 			respect_buf_cwd = true,
+			diagnostics = {
+				enable = true,
+				show_on_dirs = true,
+				severity = {
+					min = vim.diagnostic.severity.ERROR,
+				},
+			},
 		},
 	},
 	{
