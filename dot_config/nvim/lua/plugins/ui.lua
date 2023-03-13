@@ -423,19 +423,17 @@ return {
 		end,
 	},
 	{
-		"yamatsum/nvim-cursorline",
-		priority = 1000,
-		config = function()
-			require("nvim-cursorline").setup({
-				cursorline = {
-					enable = true,
-					timeout = 0,
-					number = false,
-				},
-				cursorword = {
-					enable = false,
-				},
+		"Tummetott/reticle.nvim",
+		lazy = false,
+		init = function()
+			vim.api.nvim_create_autocmd("BufWinEnter", {
+				pattern = "*",
+				callback = function()
+					vim.opt.cursorline = true
+				end,
+				once = false,
 			})
+			vim.opt.cursorline = true
 		end,
 	},
 	{
@@ -586,6 +584,10 @@ return {
 	},
 	{
 		"lukas-reineke/virt-column.nvim",
+		config = true,
+	},
+	{
+		"petertriho/nvim-scrollbar",
 		config = true,
 	},
 }
