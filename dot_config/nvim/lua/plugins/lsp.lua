@@ -26,7 +26,21 @@ return {
 			local lsp = require("lsp-zero")
 			local lspkind = require("lspkind")
 			local navic = require("nvim-navic")
-			lsp.preset("recommended")
+			lsp.preset({
+				suggest_lsp_servers = true,
+				setup_servers_on_start = true,
+				set_lsp_keymaps = true,
+				configure_diagnostics = true,
+				cmp_capabilities = true,
+				manage_nvim_cmp = true,
+				call_servers = "local",
+				sign_icons = {
+					Error = "",
+					Warn = "",
+					Hint = "",
+					Info = "",
+				},
+			})
 
 			lsp.on_attach(function(client, bufnr)
 				navic.attach(client, bufnr)
@@ -36,20 +50,6 @@ return {
 
 			lsp.set_preferences({
 				set_lsp_keymaps = false,
-			})
-
-			vim.diagnostic.config({
-				virtual_text = true,
-				underline = true,
-				signs = true,
-				float = {
-					show_header = true,
-					source = "if_many",
-					border = "rounded",
-					focusable = false,
-				},
-				update_in_insert = true,
-				severity_sort = true,
 			})
 
 			vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })]])
@@ -82,6 +82,29 @@ return {
 
 			lsp.skip_server_setup({ "rust_analyzer" })
 			lsp.setup()
+
+			vim.diagnostic.config({
+				virtual_text = true,
+				underline = true,
+				signs = false,
+				float = {
+					show_header = true,
+					source = "if_many",
+					border = "rounded",
+					focusable = false,
+				},
+				update_in_insert = true,
+				severity_sort = true,
+				documentation = {
+					max_height = 15,
+					max_width = 60,
+					border = "rounded",
+					col_offset = 0,
+					side_padding = 1,
+					winhighlight = "Normal:Normal,FloatBorder:Normal,CursorLine:Visual,Search:None",
+					zindex = 1001,
+				},
+			})
 		end,
 	},
 	{
