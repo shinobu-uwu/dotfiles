@@ -63,7 +63,7 @@ return {
 				kind = {},
 			},
 			lightbulb = {
-				enable = true,
+				enable = false,
 				enable_in_insert = true,
 				sign = false,
 				sign_priority = 40,
@@ -80,30 +80,6 @@ return {
 				":Lspsaga lsp_finder<cr>",
 				mode = "n",
 				desc = "View usages",
-				silent = true,
-				noremap = true,
-			},
-			{
-				"<leader>o",
-				":Lspsaga outline<cr>",
-				mode = "n",
-				desc = "Code outline",
-				silent = true,
-				noremap = true,
-			},
-			{
-				"ge",
-				":lua vim.diagnostic.goto_next()<cr>",
-				mode = "n",
-				desc = "Go to next diagnostic",
-				silent = true,
-				noremap = true,
-			},
-			{
-				"gE",
-				":lua vim.diagnostic.goto_prev()<cr>",
-				mode = "n",
-				desc = "Go to previous diagnostic",
 				silent = true,
 				noremap = true,
 			},
@@ -272,10 +248,6 @@ return {
 		end,
 	},
 	{
-		"michaelb/sniprun",
-		build = "bash ./install.sh",
-	},
-	{
 		"CRAG666/code_runner.nvim",
 		keys = {
 			{
@@ -308,9 +280,7 @@ return {
 				expr = false,
 			},
 		},
-		config = function()
-			require("rsync").setup()
-		end,
+		config = true,
 	},
 	{
 		"hkupty/iron.nvim",
@@ -325,5 +295,61 @@ return {
 				expr = false,
 			},
 		},
+	},
+	{
+		"mfussenegger/nvim-dap",
+		keys = {
+			{
+				"<leader>tb",
+				function()
+					require("dap").toggle_breakpoint()
+				end,
+				mode = "n",
+				silent = true,
+				desc = "Toggle breakpoint",
+				noremap = true,
+				expr = false,
+			},
+			config = function()
+				local dap = require("dap")
+				dap.adapters.php = {
+					type = "executable",
+					command = "bash",
+					args = { "/home/shinobu/.local/share/nvim/mason/bin/php-debug-adapter" },
+				}
+			end,
+		},
+	},
+	{
+		"rcarriga/nvim-dap-ui",
+		dependencies = {
+			"mfussenegger/nvim-dap",
+		},
+		keys = {
+			{
+				"<leader>td",
+				function()
+					require("dapui").toggle()
+				end,
+				mode = "n",
+				silent = true,
+				desc = "Toggle breakpoint",
+				noremap = true,
+				expr = false,
+			},
+		},
+		config = function()
+			local dap, dapui = require("dap"), require("dapui")
+			dapui.setup()
+			dap.listeners.after.event_initialized["dapui_config"] = function()
+				dapui.open()
+			end
+			dap.listeners.before.event_terminated["dapui_config"] = function()
+				dapui.close()
+			end
+			dap.listeners.before.event_exited["dapui_config"] = function()
+				dapui.close()
+			end
+		end,
 	},
 }
