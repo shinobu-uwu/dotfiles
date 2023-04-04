@@ -2,25 +2,6 @@ return {
 	{
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v1.x",
-		keys = {
-
-			{
-				"ge",
-				":lua vim.diagnostic.goto_next()<cr>",
-				mode = "n",
-				desc = "Go to next diagnostic",
-				silent = true,
-				noremap = true,
-			},
-			{
-				"gE",
-				":lua vim.diagnostic.goto_prev()<cr>",
-				mode = "n",
-				desc = "Go to previous diagnostic",
-				silent = true,
-				noremap = true,
-			},
-		},
 		dependencies = {
 			-- LSP Support
 			{ "neovim/nvim-lspconfig" }, -- Required
@@ -45,21 +26,7 @@ return {
 			local lsp = require("lsp-zero")
 			local lspkind = require("lspkind")
 			local navic = require("nvim-navic")
-			lsp.preset({
-				suggest_lsp_servers = true,
-				setup_servers_on_start = true,
-				set_lsp_keymaps = true,
-				configure_diagnostics = true,
-				cmp_capabilities = true,
-				manage_nvim_cmp = true,
-				call_servers = "local",
-				sign_icons = {
-					Error = "",
-					Warn = "",
-					Hint = "",
-					Info = "",
-				},
-			})
+			lsp.preset("recommended")
 
 			lsp.on_attach(function(client, bufnr)
 				navic.attach(client, bufnr)
@@ -136,6 +103,7 @@ return {
 				sources = {
 					null_ls.builtins.formatting.rustfmt,
 					null_ls.builtins.formatting.stylua,
+					null_ls.builtins.formatting.fixjson,
 					null_ls.builtins.diagnostics.eslint_d,
 					null_ls.builtins.diagnostics.eslint,
 				},

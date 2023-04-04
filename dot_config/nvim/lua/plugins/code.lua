@@ -76,6 +76,22 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		keys = {
 			{
+				"ge",
+				":lua vim.diagnostic.goto_next()<cr>",
+				mode = "n",
+				desc = "Go to next diagnostic",
+				silent = true,
+				noremap = true,
+			},
+			{
+				"gE",
+				":lua vim.diagnostic.goto_prev()<cr>",
+				mode = "n",
+				desc = "Go to previous diagnostic",
+				silent = true,
+				noremap = true,
+			},
+			{
 				"gd",
 				":Lspsaga lsp_finder<cr>",
 				mode = "n",
@@ -340,6 +356,7 @@ return {
 		},
 		config = function()
 			local dap, dapui = require("dap"), require("dapui")
+
 			dapui.setup()
 			dap.listeners.after.event_initialized["dapui_config"] = function()
 				dapui.open()
@@ -350,6 +367,12 @@ return {
 			dap.listeners.before.event_exited["dapui_config"] = function()
 				dapui.close()
 			end
+
+			local sign = vim.fn.sign_define
+
+			sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+			sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
+			sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
 		end,
 	},
 }

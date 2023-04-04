@@ -1,29 +1,98 @@
 return {
 	{
-		"Mofiqul/dracula.nvim",
+		"catppuccin/nvim",
+		name = "catppuccin",
 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
 		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
-			-- local gutter_fg = "#4B5263"
-			local gutter_fg = "#033E5D"
-			local dracula = require("dracula")
-			dracula.setup({
-				italic_comment = true,
-				overrides = {
-					-- Make floating window more visible aainst default background
-					NormalFloat = { bg = "#2E303F" },
-					-- Add hl for vim-illuminate
-					illuminatedWord = { bg = gutter_fg },
-					illuminatedCurWord = { bg = gutter_fg },
-					IlluminatedWordText = { bg = gutter_fg },
-					IlluminatedWordRead = { bg = gutter_fg },
-					IlluminatedWordWrite = { bg = gutter_fg },
+			require("catppuccin").setup({
+				flavour = "macchiato", -- latte, frappe, macchiato, mocha
+				background = { -- :h background
+					light = "latte",
+					dark = "mocha",
+				},
+				transparent_background = false,
+				show_end_of_buffer = false, -- show the '~' characters after the end of buffers
+				term_colors = false,
+				dim_inactive = {
+					enabled = false,
+					shade = "dark",
+					percentage = 0.15,
+				},
+				no_italic = false, -- Force no italic
+				no_bold = false, -- Force no bold
+				styles = {
+					comments = { "italic" },
+					conditionals = { "italic" },
+					loops = {},
+					functions = {},
+					keywords = {},
+					strings = {},
+					variables = {},
+					numbers = {},
+					booleans = {},
+					properties = {},
+					types = {},
+					operators = {},
+				},
+				color_overrides = {},
+				custom_highlights = {},
+				integrations = {
+					cmp = true,
+					gitsigns = true,
+					nvimtree = true,
+					telescope = true,
+					barbecue = {
+						dim_dirname = true,
+						bold_basename = true,
+						dim_context = false,
+					},
+					notify = true,
+					integration = {
+						dap = {
+							enabled = true,
+							enable_ui = true, -- enable nvim-dap-ui
+						},
+					},
+					which_key = true,
+					illuminate = true,
+					treesitter = true,
+					noice = true,
+					mason = true,
+					barbar = true,
 				},
 			})
 
-			vim.cmd([[colorscheme dracula]])
+			-- setup must be called before loading
+			vim.cmd.colorscheme("catppuccin")
+			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
+	-- {
+	-- 	"Mofiqul/dracula.nvim",
+	-- 	lazy = false, -- make sure we load this during startup if it is your main colorscheme
+	-- 	priority = 1000, -- make sure to load this before all the other start plugins
+	-- 	config = function()
+	-- 		-- local gutter_fg = "#4B5263"
+	-- 		local gutter_fg = "#033E5D"
+	-- 		local dracula = require("dracula")
+	-- 		dracula.setup({
+	-- 			italic_comment = true,
+	-- 			overrides = {
+	-- 				-- Make floating window more visible aainst default background
+	-- 				NormalFloat = { bg = "#2E303F" },
+	-- 				-- Add hl for vim-illuminate
+	-- 				illuminatedWord = { bg = gutter_fg },
+	-- 				illuminatedCurWord = { bg = gutter_fg },
+	-- 				IlluminatedWordText = { bg = gutter_fg },
+	-- 				IlluminatedWordRead = { bg = gutter_fg },
+	-- 				IlluminatedWordWrite = { bg = gutter_fg },
+	-- 			},
+	-- 		})
+	--
+	-- 		vim.cmd([[colorscheme dracula]])
+	-- 	end,
+	-- },
 	{ "MunifTanjim/nui.nvim" },
 	{
 		"rcarriga/nvim-notify",
@@ -56,7 +125,7 @@ return {
 				lsp_doc_border = false, -- add a border to hover docs and signature help
 			},
 		},
-		depends = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+		dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -581,7 +650,9 @@ return {
 			"SmiteshP/nvim-navic",
 			"nvim-tree/nvim-web-devicons",
 		},
-		opts = {},
+		opts = {
+			theme = "catppuccin",
+		},
 	},
 	{
 		"lukas-reineke/virt-column.nvim",
