@@ -15,6 +15,7 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
+		version = false,
 		keys = {
 			{
 				"<leader>ff",
@@ -39,6 +40,12 @@ return {
 				end,
 				mode = "v",
 				desc = "Search everywhere",
+			},
+			{
+				"<leader>vu",
+				function()
+					require("telescope.builtin").lsp_references()
+				end,
 			},
 		},
 	},

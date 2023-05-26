@@ -24,6 +24,7 @@ input * {
 }
 
 default_border pixel
+corner_radius 10
 
 ### Variables
 #

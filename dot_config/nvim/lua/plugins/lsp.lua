@@ -104,6 +104,7 @@ return {
 					null_ls.builtins.formatting.rustfmt,
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.fixjson,
+					null_ls.builtins.formatting.sql_formatter,
 					null_ls.builtins.diagnostics.eslint_d,
 					null_ls.builtins.diagnostics.eslint,
 				},
@@ -129,5 +130,19 @@ return {
 	},
 	{
 		"lukas-reineke/cmp-under-comparator",
+	},
+	{
+		"ray-x/go.nvim",
+		dependencies = { -- optional packages
+			"ray-x/guihua.lua",
+			"neovim/nvim-lspconfig",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		config = function()
+			require("go").setup()
+		end,
+		event = { "CmdlineEnter" },
+		ft = { "go", "gomod" },
+		build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
 	},
 }

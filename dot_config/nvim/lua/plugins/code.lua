@@ -14,34 +14,27 @@ return {
 		end,
 	},
 	{
-		"echasnovski/mini.comment",
+		"numToStr/Comment.nvim",
 		event = "VeryLazy",
-		opts = {
-			hooks = {
-				pre = function()
+		config = function()
+			require("Comment").setup({
+				pre_hook = function()
 					require("ts_context_commentstring.internal").update_commentstring({})
 				end,
-			},
-		},
-		config = function(_, opts)
-			require("mini.comment").setup(opts)
+			})
 		end,
 	},
 	{
-		"weilbith/nvim-code-action-menu",
-		cmd = "CodeActionMenu",
+		"aznhe21/actions-preview.nvim",
 		config = function()
-			vim.g.code_action_menu_window_border = "rounded"
+			vim.keymap.set({ "v", "n" }, "<M-Enter>", require("actions-preview").code_actions)
 		end,
-		keys = {
-			{ "<M-Enter>", ":CodeActionMenu<CR>", mode = "n", silent = true, desc = "Code action menu" },
-		},
 	},
 	{
-		"kdheepak/lazygit.nvim",
-		keys = {
-			{ "<leader>lg", ":LazyGitFilterCurrentFile<CR>", mode = "n", silent = true, desc = "LazyGit" },
-		},
+		"NvChad/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup()
+		end,
 	},
 	{
 		"glepnir/lspsaga.nvim",
@@ -75,6 +68,14 @@ return {
 		},
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		keys = {
+			{ "K", ":lua vim.lsp.buf.hover()<cr>", mode = "n", desc = "Hover doc", silent = true, noremap = true },
+			{
+				"gd",
+				":lua vim.lsp.buf.definition()<cr>",
+				mode = "n",
+				silent = true,
+				desc = "Go to definition",
+			},
 			{
 				"ge",
 				":lua vim.diagnostic.goto_next()<cr>",
@@ -91,15 +92,6 @@ return {
 				silent = true,
 				noremap = true,
 			},
-			{
-				"gd",
-				":Lspsaga lsp_finder<cr>",
-				mode = "n",
-				desc = "View usages",
-				silent = true,
-				noremap = true,
-			},
-			{ "K", ":Lspsaga hover_doc<cr>", mode = "n", desc = "Hover doc", silent = true, noremap = true },
 		},
 	},
 	{
@@ -221,13 +213,15 @@ return {
 		end,
 	},
 	{
-		"kristijanhusak/vim-dadbod-ui",
-		dependencies = { "tpope/vim-dadbod" },
+		"kndndrj/nvim-dbee",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+		},
+		build = function()
+			require("dbee").install()
+		end,
 		config = function()
-			vim.g.dbs = {
-				dev = "mysql://root:12345@172.17.0.2",
-			}
-			vim.keymap.set("n", "<leader>db", "<cmd>DBUIToggle<cr>")
+			require("dbee").setup(--[[optional config]])
 		end,
 	},
 	{
@@ -279,36 +273,6 @@ return {
 		opts = {
 			filetype = {
 				rust = "cargo run",
-			},
-		},
-	},
-	{
-		"shinobu-uwu/rsync.nvim",
-		lazy = false,
-		keys = {
-			{
-				"<leader>uf",
-				":RsyncCurrentFile<CR>",
-				mode = "n",
-				silent = true,
-				desc = "Upload current file to remote",
-				noremap = true,
-				expr = false,
-			},
-		},
-		config = true,
-	},
-	{
-		"hkupty/iron.nvim",
-		keys = {
-			{
-				"<leader>rs",
-				":IronRepl<CR>",
-				mode = "n",
-				silent = true,
-				desc = "Open REPL",
-				noremap = true,
-				expr = false,
 			},
 		},
 	},
