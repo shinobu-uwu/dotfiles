@@ -59,7 +59,27 @@ return {
 			{ "<leader>ut", ":Telescope undo<CR>", mode = "n", desc = "Undo tree" },
 		},
 		config = function()
-			require("telescope").load_extension("undo")
+			local telescope = require("telescope")
+			telescope.setup({
+				defaults = {
+					layout_config = {
+						width = 0.8,
+						prompt_position = "top",
+						preview_cutoff = 120,
+						horizontal = { mirror = false },
+						vertical = { mirror = false },
+					},
+					layout_strategy = "horizontal",
+					winblend = 0,
+					selection_strategy = "reset",
+					sorting_strategy = "ascending",
+					prompt_prefix = "   ",
+					selection_caret = "󰜴 ",
+					path_display = { "smart" },
+					file_ignore_patterns = { ".git/", "node_modules" },
+				},
+			})
+			telescope.load_extension("undo")
 		end,
 	},
 	{
