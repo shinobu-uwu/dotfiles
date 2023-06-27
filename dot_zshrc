@@ -31,3 +31,4 @@ alias ls='ls --color=auto'
 export PATH=~/.local/bin:$PATH
 export EDITOR=nvim
 alias ls='exa --icons'
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
