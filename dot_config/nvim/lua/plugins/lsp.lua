@@ -24,6 +24,8 @@ return {
 		},
 		config = function()
 			local lsp = require("lsp-zero")
+			local cmp = require("cmp")
+			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 			local lspkind = require("lspkind")
 			local navic = require("nvim-navic")
 			lsp.preset("recommended")
@@ -38,16 +40,25 @@ return {
 				set_lsp_keymaps = false,
 			})
 
+
+
 			vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })]])
 
-			local cmp = require("cmp")
-			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+			local cmp_mappings = lsp.defaults.cmp_mappings({
+				["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+				["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+				["<C-y>"] = cmp.mapping.confirm({ select = true }),
+				["<C-Space>"] = cmp.mapping.complete(),
+			})
+			cmp_mappings["<Tab>"] = nil
+			cmp_mappings["<S-Tab>"] = nil
 			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 			lsp.setup_nvim_cmp({
 				window = {
 					completion = cmp.config.window.bordered(),
 					documentation = cmp.config.window.bordered(),
 				},
+				mapping = cmp_mappings,
 				formatting = {
 					fields = { "abbr", "kind" },
 					format = lspkind.cmp_format(),
@@ -101,9 +112,11 @@ return {
 
 			null_ls.setup({
 				sources = {
+					null_ls.builtins.formatting.gofmt,
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.fixjson,
 					null_ls.builtins.formatting.prettierd,
+					null_ls.builtins.formatting.goimports,
 					null_ls.builtins.formatting.sql_formatter,
 					null_ls.builtins.diagnostics.eslint_d,
 				},
