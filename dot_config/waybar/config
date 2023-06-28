@@ -3,8 +3,7 @@
     "margin": 3,
     "modules-left": [
         "sway/workspaces",
-        "pulseaudio",
-        "custom/weather"
+        "pulseaudio"
     ],
     "modules-center": [
         "sway/window"
