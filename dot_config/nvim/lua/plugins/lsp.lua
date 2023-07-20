@@ -40,8 +40,6 @@ return {
 				set_lsp_keymaps = false,
 			})
 
-
-
 			vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })]])
 
 			local cmp_mappings = lsp.defaults.cmp_mappings({
@@ -115,7 +113,9 @@ return {
 					null_ls.builtins.formatting.gofmt,
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.fixjson,
-					null_ls.builtins.formatting.prettierd,
+					null_ls.builtins.formatting.prettier.with({
+						filetypes = { "svelte" },
+					}),
 					null_ls.builtins.formatting.goimports,
 					null_ls.builtins.formatting.sql_formatter,
 					null_ls.builtins.diagnostics.eslint_d,

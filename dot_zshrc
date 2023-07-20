@@ -30,5 +30,7 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 alias ls='ls --color=auto'
 export PATH=~/.local/bin:$PATH
 export EDITOR=nvim
+export GOPATH=/home/shinobu/.go
 alias ls='exa --icons'
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+export BAT_THEME="Catppuccin-macchiato"

@@ -21,6 +21,7 @@ return {
 				},
 				no_italic = false, -- Force no italic
 				no_bold = false, -- Force no bold
+				no_underline = false,
 				styles = {
 					comments = { "italic" },
 					conditionals = { "italic" },
