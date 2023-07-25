@@ -140,7 +140,7 @@ return {
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.fixjson,
 					null_ls.builtins.formatting.prettier.with({
-						filetypes = { "svelte" },
+						extra_filetypes = { "svelte" },
 					}),
 					null_ls.builtins.formatting.goimports,
 					null_ls.builtins.formatting.sql_formatter,
