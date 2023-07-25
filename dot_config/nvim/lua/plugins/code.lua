@@ -37,64 +37,6 @@ return {
 		end,
 	},
 	{
-		"glepnir/lspsaga.nvim",
-		event = "BufRead",
-		opts = {
-			ui = {
-				theme = "round",
-				title = true,
-				border = "rounded",
-				winblend = 0,
-				expand = "",
-				collapse = "",
-				preview = " ",
-				code_action = "💡",
-				diagnostic = "🐞",
-				incoming = " ",
-				outgoing = " ",
-				hover = " ",
-				kind = {},
-			},
-			lightbulb = {
-				enable = false,
-				enable_in_insert = true,
-				sign = false,
-				sign_priority = 40,
-				virtual_text = true,
-			},
-			symbol_in_winbar = {
-				enable = false,
-			},
-		},
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		keys = {
-			{ "K", ":lua vim.lsp.buf.hover()<cr>", mode = "n", desc = "Hover doc", silent = true, noremap = true },
-			{
-				"gd",
-				":lua vim.lsp.buf.definition()<cr>",
-				mode = "n",
-				silent = true,
-				desc = "Go to definition",
-			},
-			{
-				"ge",
-				":lua vim.diagnostic.goto_next()<cr>",
-				mode = "n",
-				desc = "Go to next diagnostic",
-				silent = true,
-				noremap = true,
-			},
-			{
-				"gE",
-				":lua vim.diagnostic.goto_prev()<cr>",
-				mode = "n",
-				desc = "Go to previous diagnostic",
-				silent = true,
-				noremap = true,
-			},
-		},
-	},
-	{
 		"simrat39/rust-tools.nvim",
 		config = function()
 			local function on_attach(client, buffer) end

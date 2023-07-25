@@ -101,6 +101,32 @@ return {
 				},
 			})
 		end,
+		keys = {
+			{ "K", ":lua vim.lsp.buf.hover()<cr>", mode = "n", desc = "Hover doc", silent = true, noremap = true },
+			{
+				"gd",
+				":lua vim.lsp.buf.definition()<cr>",
+				mode = "n",
+				silent = true,
+				desc = "Go to definition",
+			},
+			{
+				"ge",
+				":lua vim.diagnostic.goto_next()<cr>",
+				mode = "n",
+				desc = "Go to next diagnostic",
+				silent = true,
+				noremap = true,
+			},
+			{
+				"gE",
+				":lua vim.diagnostic.goto_prev()<cr>",
+				mode = "n",
+				desc = "Go to previous diagnostic",
+				silent = true,
+				noremap = true,
+			},
+		},
 	},
 	{
 		"jose-elias-alvarez/null-ls.nvim",
