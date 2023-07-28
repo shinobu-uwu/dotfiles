@@ -145,7 +145,9 @@ return {
 					null_ls.builtins.formatting.goimports,
 					null_ls.builtins.formatting.clang_format,
 					null_ls.builtins.formatting.sql_formatter,
+					null_ls.builtins.formatting.buf,
 					null_ls.builtins.diagnostics.eslint_d,
+					null_ls.builtins.diagnostics.buf,
 				},
 				on_attach = function(client, bufnr)
 					if client.supports_method("textDocument/formatting") then
