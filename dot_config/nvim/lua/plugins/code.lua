@@ -38,40 +38,6 @@ return {
 	},
 	{
 		"simrat39/rust-tools.nvim",
-		config = function()
-			local function on_attach(client, buffer) end
-
-			local opts = {
-				tools = {
-					runnables = {
-						use_telescope = true,
-					},
-					inlay_hints = {
-						auto = true,
-						show_parameter_hints = false,
-						parameter_hints_prefix = "",
-						other_hints_prefix = "",
-					},
-				},
-				server = {
-					on_attach = on_attach,
-					settings = {
-						["rust-analyzer"] = {
-							checkOnSave = {
-								command = { "clippy", "format" },
-							},
-							diagnostic = {
-								enable = true,
-								disabled = { "unresolved-proc-macro" },
-								enableExperimental = true,
-							},
-						},
-					},
-				},
-			}
-
-			require("rust-tools").setup(opts)
-		end,
 	},
 	{
 		"saecki/crates.nvim",
@@ -82,7 +48,6 @@ return {
 	},
 	{
 		"p00f/clangd_extensions.nvim",
-		config = true,
 	},
 	{
 		"windwp/nvim-ts-autotag",
@@ -152,18 +117,6 @@ return {
 		"nmac427/guess-indent.nvim",
 		config = function()
 			require("guess-indent").setup({})
-		end,
-	},
-	{
-		"kndndrj/nvim-dbee",
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-		},
-		build = function()
-			require("dbee").install()
-		end,
-		config = function()
-			require("dbee").setup(--[[optional config]])
 		end,
 	},
 	{
@@ -298,12 +251,10 @@ return {
 	},
 	{
 		"akinsho/flutter-tools.nvim",
-		lazy = false,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"stevearc/dressing.nvim", -- optional for vim.ui.select
+			"stevearc/dressing.nvim",
 		},
-		setup = true,
 	},
 	{
 		"github/copilot.vim",

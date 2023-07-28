@@ -29,7 +29,53 @@ return {
 					lua_ls = function()
 						require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 					end,
+					rust_analyzer = function()
+						local opts = {
+							tools = {
+								runnables = {
+									use_telescope = true,
+								},
+								inlay_hints = {
+									auto = true,
+									show_parameter_hints = false,
+									parameter_hints_prefix = "",
+									other_hints_prefix = "",
+								},
+							},
+							server = {
+								settings = {
+									["rust-analyzer"] = {
+										checkOnSave = {
+											command = { "clippy", "format" },
+										},
+										diagnostic = {
+											enable = true,
+											disabled = { "unresolved-proc-macro" },
+											enableExperimental = true,
+										},
+									},
+								},
+							},
+						}
+
+						require("rust-tools").setup(opts)
+					end,
+					clangd = function()
+						require("clangd_extensions").setup({
+							server = {
+								cmd = {
+									"clangd",
+									"--offset-encoding=utf-16",
+								},
+							},
+						})
+					end,
 				},
+			})
+
+			-- we need to setup these plugins after lsp-zero
+			require("flutter-tools").setup({
+				capabilities = lsp.get_capabilities(),
 			})
 		end,
 	},
