@@ -47,6 +47,12 @@ return {
 					require("telescope.builtin").lsp_references()
 				end,
 			},
+			{
+				"<leader>b",
+				function()
+					require("telescope.builtin").buffers()
+				end,
+			},
 		},
 	},
 	{

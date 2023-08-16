@@ -21,9 +21,11 @@ return {
 				set_format = false,
 			})
 
+			vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })]])
+
 			require("mason").setup({})
 			require("mason-lspconfig").setup({
-				ensure_installed = { "rust_analyzer" },
+				ensure_installed = { "rust_analyzer", "clangd" },
 				handlers = {
 					lsp.default_setup,
 					lua_ls = function()
@@ -31,6 +33,13 @@ return {
 					end,
 					rust_analyzer = function()
 						local opts = {
+							dap = {
+								adapter = {
+									type = "executable",
+									command = "lldb",
+									name = "rt_lldb",
+								},
+							},
 							tools = {
 								runnables = {
 									use_telescope = true,
@@ -60,22 +69,21 @@ return {
 
 						require("rust-tools").setup(opts)
 					end,
-					clangd = function()
-						require("clangd_extensions").setup({
-							server = {
-								cmd = {
-									"clangd",
-									"--offset-encoding=utf-16",
-								},
-							},
-						})
-					end,
 				},
 			})
 
 			-- we need to setup these plugins after lsp-zero
 			require("flutter-tools").setup({
 				capabilities = lsp.get_capabilities(),
+			})
+
+			require("clangd_extensions").setup({
+				server = {
+					cmd = {
+						"clangd",
+						"--offset-encoding=utf-16",
+					},
+				},
 			})
 		end,
 	},
@@ -118,7 +126,11 @@ return {
 				},
 				formatting = {
 					fields = { "abbr", "kind" },
-					format = require("lspkind").cmp_format(),
+					format = lspkind.cmp_format({
+						mode = "symbol",
+						maxwidth = 100,
+						ellipsis_char = "...",
+					}),
 					sorting = {
 						comparators = {
 							cmp.config.compare.offset,
