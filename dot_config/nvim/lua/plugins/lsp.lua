@@ -40,8 +40,6 @@ return {
 	-- 			set_lsp_keymaps = false,
 	-- 		})
 	--
-	-- 		vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })]])
-	--
 	-- 		local cmp_mappings = lsp.defaults.cmp_mappings({
 	-- 			["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
 	-- 			["<C-n>"] = cmp.mapping.select_next_item(cmp_select),

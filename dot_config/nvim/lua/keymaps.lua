@@ -1,6 +1,7 @@
 local wk = require("which-key")
 wk.register({
 	K = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover doc", silent = true, noremap = true },
+	T = { "<cmd>lua vim.diagnostic.open_float(nil, { focus = false })<cr>", "Open float diagnostics", silent = true },
 	g = {
 		name = "Go to",
 		d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Go to definition", silent = true, noremap = true },
