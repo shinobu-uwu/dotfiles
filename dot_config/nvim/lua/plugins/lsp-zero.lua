@@ -70,11 +70,6 @@ return {
 				},
 			})
 
-			-- we need to setup these plugins after lsp-zero
-			require("flutter-tools").setup({
-				capabilities = lsp.get_capabilities(),
-			})
-
 			require("clangd_extensions").setup({
 				server = {
 					cmd = {

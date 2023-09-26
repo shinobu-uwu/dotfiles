@@ -175,7 +175,24 @@ return {
 	{
 		"mfussenegger/nvim-dap",
 		keys = {
-			config = function() end,
+			config = function()
+				local dap = require("dap")
+
+				dap.adapters.go = {
+					type = "executable",
+					command = "go-debug-adapter",
+				}
+				dap.configurations.go = {
+					{
+						type = "go",
+						name = "Debug",
+						request = "launch",
+						showLog = false,
+						program = "${file}",
+						dlvToolPath = vim.fn.exepath("dlv"),
+					},
+				}
+			end,
 		},
 	},
 	{
@@ -248,6 +265,9 @@ return {
 			"stevearc/dressing.nvim",
 		},
 	},
+	{
+		"tpope/vim-surround",
+	},
 	-- {
 	-- 	"github/copilot.vim",
 	-- 	setup = function()
@@ -257,5 +277,22 @@ return {
 	{
 		"theHamsta/nvim-dap-virtual-text",
 		config = true,
+	},
+	{
+		"kristijanhusak/vim-dadbod-ui",
+		dependencies = {
+			{ "tpope/vim-dadbod", lazy = true },
+			{ "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
+		},
+		cmd = {
+			"DBUI",
+			"DBUIToggle",
+			"DBUIAddConnection",
+			"DBUIFindBuffer",
+		},
+		init = function()
+			vim.g.db_ui_use_nerd_fonts = 1
+			vim.keymap.set("n", "<leader>db", "<cmd>DBUIToggle<cr>")
+		end,
 	},
 }
