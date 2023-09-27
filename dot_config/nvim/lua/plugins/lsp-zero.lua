@@ -95,7 +95,20 @@ return {
 			local cmp_select_opts = { behavior = cmp.SelectBehavior.Select }
 			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 			local lspkind = require("lspkind")
-
+			local autocomplete_group = vim.api.nvim_create_augroup("vimrc_autocompletion", { clear = true })
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = { "sql", "mysql", "plsql" },
+				callback = function()
+					cmp.setup.buffer({
+						sources = {
+							{ name = "vim-dadbod-completion" },
+							{ name = "buffer" },
+							{ name = "vsnip" },
+						},
+					})
+				end,
+				group = autocomplete_group,
+			})
 			cmp.setup({
 				preselect = "item",
 				completion = {
