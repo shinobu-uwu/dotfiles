@@ -129,6 +129,7 @@ return {
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
+		tag = "v2.20.8",
 		config = function()
 			require("indent_blankline").setup({
 				filetype_exclude = { "dashboard" },
@@ -486,6 +487,15 @@ return {
 	-- },
 	{
 		"lewis6991/gitsigns.nvim",
+		keys = {
+			{
+				"<leader>gb",
+				":Gitsigns blame_line<cr>",
+				mode = "n",
+				silent = true,
+				desc = "Git blame current line",
+			},
+		},
 		config = function()
 			require("gitsigns").setup()
 			require("scrollbar.handlers.gitsigns").setup()
