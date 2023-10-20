@@ -137,6 +137,8 @@ return {
 					null_ls.builtins.formatting.gofmt,
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.fixjson,
+					null_ls.builtins.formatting.autopep8,
+					null_ls.builtins.formatting.autoflake,
 					null_ls.builtins.formatting.prettier.with({
 						extra_filetypes = { "svelte" },
 					}),
