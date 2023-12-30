@@ -22,6 +22,14 @@ return {
 		version = false,
 		keys = {
 			{
+				"<leader>le",
+				function()
+					require("telescope.builtin").diagnostics()
+				end,
+				mode = "n",
+				desc = "List diagnostics",
+			},
+			{
 				"<leader>ff",
 				function()
 					require("telescope.builtin").find_files()
