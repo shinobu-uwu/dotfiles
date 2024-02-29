@@ -1,2 +1,1 @@
-require("set")
-require("remaps")
+require 'remaps'
