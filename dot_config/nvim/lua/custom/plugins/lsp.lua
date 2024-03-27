@@ -13,7 +13,7 @@ return {
           null_ls.builtins.formatting.fixjson,
           null_ls.builtins.formatting.autopep8,
           null_ls.builtins.formatting.autoflake,
-          null_ls.builtins.formatting.prettier.with {
+          null_ls.builtins.formatting.prettierd.with {
             extra_filetypes = { 'svelte' },
           },
           null_ls.builtins.formatting.goimports,
