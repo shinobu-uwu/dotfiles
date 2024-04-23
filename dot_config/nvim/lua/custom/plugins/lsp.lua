@@ -1,45 +1,44 @@
 return {
   {
-    'nvimtools/none-ls.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    'mfussenegger/nvim-lint',
     config = function()
-      local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
-      local null_ls = require 'null-ls'
-
-      null_ls.setup {
-        sources = {
-          null_ls.builtins.formatting.gofmt,
-          null_ls.builtins.formatting.stylua,
-          null_ls.builtins.formatting.fixjson,
-          null_ls.builtins.formatting.autopep8,
-          null_ls.builtins.formatting.autoflake,
-          null_ls.builtins.formatting.prettierd.with {
-            extra_filetypes = { 'svelte' },
-          },
-          null_ls.builtins.formatting.goimports,
-          null_ls.builtins.formatting.clang_format,
-          null_ls.builtins.formatting.buf,
-          null_ls.builtins.diagnostics.eslint_d,
-          null_ls.builtins.diagnostics.buf,
-        },
-        on_attach = function(client, bufnr)
-          if client.supports_method 'textDocument/formatting' then
-            vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
-            vim.api.nvim_create_autocmd('BufWritePre', {
-              group = augroup,
-              buffer = bufnr,
-              callback = function()
-                vim.lsp.buf.format {
-                  bufnr = bufnr,
-                  filter = function(c)
-                    return c.name == 'null-ls'
-                  end,
-                }
-              end,
-            })
-          end
-        end,
+      local lint = require('lint')
+      lint.linters_by_ft = {
+        go = { 'golangcilint' },
+        javascript = { 'eslint_d' },
+        typescript = { 'eslint_d' },
+        typescriptreact = { 'eslint_d' },
+        svelte = { 'eslint_d' },
+        lua = { 'luacheck' },
+        json = { 'jsonlint' },
+        c = { 'clangtidy' },
       }
+    vim.api.nvim_create_autocmd({ "TextChanged" }, {
+      callback = function()
+        require("lint").try_lint()
+      end,
+    })
     end,
   },
+  {
+    'stevearc/conform.nvim',
+    opts = {
+      formatters_by_ft =  {
+        lua = { 'stylua'},
+        javascript = { 'prettierd' },
+        typescript = { 'prettierd' },
+        typescriptreact = { 'prettierd' },
+        svelte = { 'prettierd' },
+        rust = { 'rustfmt' },
+        go = { 'goimports', 'gofmt' },
+        c = { 'clang-format' },
+        cpp = { 'clang-format' },
+        json = { 'fixjson' },
+      },
+      format_on_save = {
+        timeout_ms = 500,
+        lsp_fallback = true,
+      },
+    },
+  }
 }
